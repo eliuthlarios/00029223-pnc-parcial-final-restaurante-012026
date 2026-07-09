@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:restaurantdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+jwt:
+  secret: test-secret-key-with-at-least-32-characters
+  access-token-expiration-minutes: 15
+  refresh-token-expiration-days: 7
+
+app:
+  seed:
+    enabled: false

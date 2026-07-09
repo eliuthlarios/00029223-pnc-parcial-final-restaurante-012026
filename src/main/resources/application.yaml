@@ -1,3 +1,27 @@
 spring:
   application:
     name: pnc-parcial-final-restaurante
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/restaurantdb}
+    username: ${SPRING_DATASOURCE_USERNAME:restaurant}
+    password: ${SPRING_DATASOURCE_PASSWORD:restaurant_dev_password}
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: ${SPRING_JPA_SHOW_SQL:false}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+jwt:
+  secret: ${JWT_SECRET:change-this-local-development-secret-32-chars-minimum}
+  access-token-expiration-minutes: ${JWT_ACCESS_EXPIRATION_MINUTES:15}
+  refresh-token-expiration-days: ${JWT_REFRESH_EXPIRATION_DAYS:7}
+
+app:
+  seed:
+    enabled: ${APP_SEED_ENABLED:true}
